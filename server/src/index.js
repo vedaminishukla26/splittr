@@ -4,8 +4,11 @@ import helment from 'helmet'
 import morgan from 'morgan'
 import dotenv from 'dotenv'
 import helmet from 'helmet'
+import connectDB from './config/db.js'
+import authRoutes from './routes/authRoutes.js'
 
 dotenv.config()
+connectDB()
 
 const app = express();
 const PORT = process.env.PORT || 5000;
@@ -21,6 +24,8 @@ app.get('/health', (req, res) => {
         timestamp: new Date()
     })
 })
+
+app.use('/api/auth', authRoutes)
 
 app.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`)
