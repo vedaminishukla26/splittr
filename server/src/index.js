@@ -1,11 +1,11 @@
 import express from 'express'
 import cors from 'cors'
-import helment from 'helmet'
 import morgan from 'morgan'
 import dotenv from 'dotenv'
 import helmet from 'helmet'
 import connectDB from './config/db.js'
 import authRoutes from './routes/authRoutes.js'
+import groupRoutes from './routes/groupRoutes.js'
 
 dotenv.config()
 connectDB()
@@ -26,6 +26,7 @@ app.get('/health', (req, res) => {
 })
 
 app.use('/api/auth', authRoutes)
+app.use('/api/groups', groupRoutes)
 
 app.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`)

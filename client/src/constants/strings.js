@@ -15,5 +15,22 @@ export default {
     fullName: 'Full Name',
     alreadyAcc: 'Already have an account?',
     creatingAcc: 'Creating Account...',
-    signUp: 'Sign Up'
+    signUp: 'Sign Up',
+    yourGroups: 'Your Groups',
+    createGroup: 'Create Group',
+    noGroups: 'You are not part of any groups yet.',
+    createAgrp: 'Create a group to start splitting expenses with friends.',
+    members: 'members', 
+    createNewGrp: 'Create New Group',
+    groupNamePlaceholder: 'Group Name (e.g. Apartment Expenses)',
+    cancel: 'Cancel',
+    create: 'Create',
+    failedGrps: 'Failed to load groups',
+    settlr: 'Settlr',
+    dashboard: 'Dashboard',
+    groups: 'Groups',
+    subscriptions: 'Subscriptions',
+    activity: 'Activity',
+    creating: 'Creating...',
+    manageGroups: 'Manage Groups'
 }

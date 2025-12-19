@@ -1,12 +1,12 @@
 import { BrowserRouter, Route, Routes, Navigate } from 'react-router-dom'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import { AuthProvider, useAuth } from './context/AuthContext'
 import Login from './pages/Login'
 import Register from './pages/Register'
+import Groups from './pages/Groups'
 import PropTypes from 'prop-types'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import strings from './constants/strings'
+import DashboardLayout from './components/DashboardLayout'
 
 const ProtectedRoute = ({ children }) => {
   const { user } = useAuth();
@@ -41,7 +41,17 @@ const  App = () => {
             
             <Route path='/dashboard' element={
               <ProtectedRoute>
-                <Dashboard />
+                <DashboardLayout>
+                  <Dashboard />
+                </DashboardLayout>
+              </ProtectedRoute>
+            } />
+
+            <Route path='/groups' element={
+              <ProtectedRoute>
+                <DashboardLayout title={strings.manageGroups} >
+                  <Groups />
+                </DashboardLayout>
               </ProtectedRoute>
             } />
 
