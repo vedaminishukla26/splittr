@@ -6,6 +6,7 @@ import helmet from 'helmet'
 import connectDB from './config/db.js'
 import authRoutes from './routes/authRoutes.js'
 import groupRoutes from './routes/groupRoutes.js'
+import expenseRoutes from './routes/expenseRoutes.js'
 
 dotenv.config()
 connectDB()
@@ -27,6 +28,7 @@ app.get('/health', (req, res) => {
 
 app.use('/api/auth', authRoutes)
 app.use('/api/groups', groupRoutes)
+app.use('/api/expenses', expenseRoutes)
 
 app.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`)

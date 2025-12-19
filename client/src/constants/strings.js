@@ -32,5 +32,9 @@ export default {
     subscriptions: 'Subscriptions',
     activity: 'Activity',
     creating: 'Creating...',
-    manageGroups: 'Manage Groups'
+    manageGroups: 'Manage Groups',
+    addExpense: 'Add Expense',
+    noExpenses: 'No expenses yet. Add one to get started!',
+     
+
 }

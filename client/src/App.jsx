@@ -7,10 +7,11 @@ import PropTypes from 'prop-types'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import strings from './constants/strings'
 import DashboardLayout from './components/DashboardLayout'
+import GroupDetails from './pages/GroupDetails'
 
 const ProtectedRoute = ({ children }) => {
   const { user } = useAuth();
-  if(!user) return <Navigate to="/login" />
+  if (!user) return <Navigate to="/login" />
   return children
 }
 
@@ -28,9 +29,9 @@ const Dashboard = () => {
   )
 }
 
-const queryClient = new QueryClient(); 
+const queryClient = new QueryClient();
 
-const  App = () => {
+const App = () => {
   return (
     <QueryClientProvider client={queryClient}>
       <BrowserRouter>
@@ -38,7 +39,7 @@ const  App = () => {
           <Routes>
             <Route path='/login' element={<Login />} />
             <Route path='/register' element={<Register />} />
-            
+
             <Route path='/dashboard' element={
               <ProtectedRoute>
                 <DashboardLayout>
@@ -55,7 +56,15 @@ const  App = () => {
               </ProtectedRoute>
             } />
 
-            <Route path='/' element={<Navigate to="/dashboard" replace />} /> 
+            <Route path="/groups/:groupId" element={
+              <ProtectedRoute>
+                <DashboardLayout title="Group Details">
+                  <GroupDetails />
+                </DashboardLayout>
+              </ProtectedRoute>
+            } />
+
+            <Route path='/' element={<Navigate to="/dashboard" replace />} />
           </Routes>
         </AuthProvider>
       </BrowserRouter>
